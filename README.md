@@ -27,9 +27,46 @@ To implement HASH ALGORITHM
 
 
 ## Program:
+#### NAME :ARCHANA T
+#### REGISTER NUMBER: 212223240013
+```
+#include <stdio.h>
+#include <string.h>
 
+void caesar(char *in, int s, char *out, int enc){
+    for(int i=0; in[i]; i++){
+        char c=in[i];
+        if(c>='A' && c<='Z') out[i]=(c-'A'+ (enc?s:26-s))%26+'A';
+        else if(c>='a' && c<='z') out[i]=(c-'a'+ (enc?s:26-s))%26+'a';
+        else out[i]=c;
+    }
+    out[strlen(in)] = '\0';
+}
+
+int main(){
+    char text[100], enc[100], dec[100];
+    int shift;
+
+    printf("Enter text: ");
+    fgets(text,100,stdin);
+    text[strcspn(text,"\n")] = 0;
+
+    printf("Shift (1–25): ");
+    scanf("%d",&shift);
+
+    caesar(text,shift,enc,1);
+    printf("Encrypted: %s\n", enc);
+
+    caesar(enc,shift,dec,0);
+    printf("Decrypted: %s\n", dec);
+
+    return 0;
+}
+
+```
 
 ## Output:
+<img width="181" height="162" alt="image" src="https://github.com/user-attachments/assets/d779936e-e36c-4e1a-b4e9-fbea8f29fc36" />
 
 ## Result:
 The program is executed successfully.
